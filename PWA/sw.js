@@ -43,3 +43,15 @@ self.addEventListener("fetch", (e) => {
       .catch((err) => caches.match(e.request).then((res) => res))
   );
 });
+
+// Handle push notifications
+self.addEventListener('push', (event) => {
+  const options = {
+    body: 'This is a push notification',
+    icon: '/path/to/icon.png',
+  };
+
+  event.waitUntil(
+    self.registration.showNotification('Push Notification', options)
+  );
+});
