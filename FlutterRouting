@@ -1,0 +1,73 @@
+import 'package:flutter/material.dart';
+
+void main() => runApp(MaterialApp(
+  initialRoute: '/',
+
+  routes: {
+    '/': (context)=> Home(),
+    '/contact':(context) => Contact(),
+    '/about' : (context) => About()
+  },
+));
+
+class Home extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Home Page'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child : Text('Hello DUNIYA!!')
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.pushNamed(context,'/contact');
+        },
+        child: Text('Contact'),
+      ),
+    );
+  }
+}
+
+class Contact extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Contact Page'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child : Text('EMERGENCY CALL')
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+            Navigator.pushNamed(context,'/about');
+        },
+        child: Text('About'),
+      ),
+    );
+  }
+}
+
+class About extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('About Page'),
+        centerTitle: true,
+      ),
+      body: Center(
+        child : Text('I am an Educator')
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+        },
+        child: Text('End'),
+      ),
+    );
+  }
+}
